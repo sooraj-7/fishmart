@@ -1,0 +1,40 @@
+{% extends "user.html" %}
+{% block content %} 
+    <section class="bg0 p-t-20 p-b-116">
+      <div class="container">
+        <div class="flex-w flex-tr">
+          <center>
+          <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md" style="background-color: aquamarine;">
+            
+            <form action ="{% url 'checkoutdata'  %}" method="POST" id="form" class="d-flex flex-wrap gap-2">
+              {% csrf_token %}
+              <h4 class="mtext-105 cl2 txt-center p-b-30">
+                 <b>CHECKOUT DETAILS</b>
+              </h4>
+  
+             
+             
+              <input type="text" value={{request.session.u_id}}   class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" value="{{request.session.mail_u}}"   class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" value="{{request.session.contact1_u}}"  class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" name="address"   placeholder=" Address" class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" name="state"  placeholder="State " class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" name="pincode"  placeholder="Pincode" class="form-control form-control-lg" style="margin-bottom: 15px;">
+              <input type="text" name="country"  placeholder="Country" class="form-control form-control-lg" style="margin-bottom: 15px;">
+              
+
+  
+              <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                Submit
+              </button>
+            </form>
+          
+          
+      </div>
+    </center>
+    </section>
+
+    {% endblock %}
+    
+    
+    

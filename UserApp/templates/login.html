@@ -1,0 +1,19 @@
+{% extends 'user.html' %}
+{% block content %} 
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-8 py-5 my-5">
+        <div class="subscribe-header text-center pb-3">
+          <h3 class="section-title text-uppercase"><b>FOR LOGIN </b></h3>
+        </div>
+        <form action ="{% url 'publicdata'  %}" method="POST" id="form" class="d-flex flex-wrap gap-2">
+          {% csrf_token %}  
+          <input type="text" name="username" placeholder="Your full name" class="form-control form-control-lg" style="margin-bottom: 20px;">
+            <input type="password" name="password" placeholder="Your password" class="form-control form-control-lg" style="margin-bottom: 20px;">
+         
+          <button class="btn btn-dark btn-lg text-uppercase w-100">LOGIN</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}

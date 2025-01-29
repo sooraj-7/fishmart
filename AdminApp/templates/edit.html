@@ -1,0 +1,40 @@
+{% extends 'admin.html'%}
+{% block content %}
+    <!-- /.card-header -->
+    <!-- form start -->
+     {% for i in data %}
+    <form action="{% url 'update' id=i.id %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="card-body">
+        <div class="form-group">
+
+          <label for="name">CATEGORY NAME</label>
+          <input type="text" class="form-control" id="name" name="name" value="{{i.name}}" placeholder="Enter name">
+        </div>
+    
+        <div class="form-group">
+          <label for="exampleInputFile"></label>
+          <div class="input-group">
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="image" name="image">
+              <label class="custom-file-label" for="image">Upload image</label>
+            </div>
+            <div class="input-group-append">
+              <span class="input-group-text">Upload</span>
+            </div>
+          </div>
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+      </div>
+      <!-- /.card-body -->
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      </div>
+    </form>
+    {% endfor %}
+  </div>
+{% endblock %}

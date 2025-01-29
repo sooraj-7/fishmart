@@ -1,0 +1,79 @@
+{% extends "user.html" %}
+{% block content %}
+{% load static %}
+ 
+<section class="bg0 p-t-23 p-b-140">
+    <div class="container-">
+        {% for i in data1 %}
+        <form action="{% url 'addcart' id=i.id %}" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+        
+<div class="mt-200 mb-250">
+    <div class="sec-banner bg0 p-t-80 p-b-50">
+    <div class="container">
+        <div class="row" style="margin-left: 300px;">
+            
+            <div class="col-lg-250">
+                <div>
+                    <div>
+                        <h3 class="text-center" style="background-color: rgb(228, 228, 106);color: black;"><b>{{i.name1}}</b></h3>
+                        <div><img src="{{i.image1.url}}" style="height: 250px; width: 250px;"></div>
+                       
+                    
+                        <h4 style="background-color: aquamarine;">{{i.description1}}</h4>
+                        <h5 style="background-color: aquamarine;">$.{{i.price1}}<h5><br>                   
+
+                        <div class="form-group">
+                            <label for="quantity" style="color: blue;"><small>QTY</small></label>
+                            <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1" max="100" placeholder="quantity">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="price"></label>
+                            <input type="text" class="form-control" id="total" name="total" value="{{i.price1}}">
+                          </div>
+                          
+                          <div class="form-group">
+                            <label for="total"></label>
+                            <input type="hidden" class="form-control" id="price" value="{{i.price1}}">
+                          </div>
+                        
+                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                            <div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10  js-show-cart">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div> Add To Cart
+                        </button>    
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+       
+        </div>
+    </div>
+</div>
+</form>
+        </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function()
+        {
+            $('#quantity').on('change', function(){
+                var quantity=$('#quantity').val();
+                var price=$('#price').val();
+                var total=parseInt(quantity)*parseInt(price);
+                $('#total').val(total);
+            })
+        })
+    </script>
+
+</section>
+
+{% endblock %}

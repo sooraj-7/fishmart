@@ -1,0 +1,27 @@
+{% extends 'admin.html'%}
+{% block content %}
+<div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>NAME</th>
+          <th>QUANTITY</th>
+          <th>PRICE</th>
+          <th>IMAGE</th>
+          <th>EMAIL</th>
+          <th>USERNAME</th>
+        </tr>
+          {% for i in data1 %}
+        <tr>
+          <td>{{i.userpro.name1}}</td>
+          <td>{{i.quantity}}</td> 
+          <td>{{i.userpro.price1}}</td> 
+          <td><img src="{{i.userpro.image1.url}}" style="width: 100px;height: 60px;"></td>   
+          <td>{{request.session.username_u}}</td> 
+          <td>{{request.session.mail_u}}</td> 
+                    
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+  {% endblock %}

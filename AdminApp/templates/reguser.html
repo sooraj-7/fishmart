@@ -1,0 +1,21 @@
+{% extends 'admin.html'%}
+{% block content %}
+<div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>USER NAME</th>
+          <th>PASSWORD</th>
+          <th>EMAIL</th>
+          <th>CONTACT</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          <td>{{i.username}}</td>
+          <td>{{i.password}}</td>
+          <td>{{i.mail}}</td>
+          <td>{{i.contact1}}</td>
+      {% endfor %}
+    </table>
+  </div>
+  {% endblock %}

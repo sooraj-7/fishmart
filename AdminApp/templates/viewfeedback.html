@@ -1,0 +1,27 @@
+{% extends "admin.html" %}
+{% block content %} 
+<div class="table-responsive">
+   
+    <table class="table align-middle">
+    <tr>
+        
+        <th>EMAIL</th>
+      
+        <th>FEEDBACK</th>
+        
+    </tr>   
+    
+    {% for i in data %}
+        <tr>
+
+          
+          <td>{{i.email}}</td>
+          <td>{{i.feedbacks}}</td> 
+          
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+   
+  </div>
+  {% endblock %}
