@@ -17,8 +17,8 @@
           <td>{{i.quantity}}</td> 
           <td>{{i.userpro.price1}}</td> 
           <td><img src="{{i.userpro.image1.url}}" style="width: 100px;height: 60px;"></td>   
-          <td>{{request.session.username_u}}</td> 
-          <td>{{request.session.mail_u}}</td> 
+          <td>{{i.usercart.username}}</td> 
+          <td>{{i.usercart.mail}}</td> 
                     
         </tr>
       {% endfor %}
